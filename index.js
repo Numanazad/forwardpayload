@@ -6,16 +6,16 @@ const port = 3000;
 app.use(express.json());
 
 // Handle the incoming webhook request
-app.post('/webhook', (req, res) => {
+app.post('/', (req, res) => {
   const payload = req.body; // The payload received from GHL
-  
+  console.log("payload: ", payload);
   forwardPayloadToCapri(payload)
     .then(() => {
       res.sendStatus(200);
     })
     .catch((error) => {
       console.error('Error forwarding payload to Capri:', error);
-      res.sendStatus(500);
+      res.sendStatus(200);
     });
 });
 
