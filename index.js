@@ -5,6 +5,10 @@ const port = 3000;
 
 app.use(express.json());
 
+app.get("/test", (req,res)=>{
+  res.send("hello gcp");
+})
+
 // Handle the incoming webhook request
 app.post('/', (req, res) => {
   const payload = req.body; // The payload received from GHL
